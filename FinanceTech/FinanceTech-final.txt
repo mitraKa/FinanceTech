@@ -1,0 +1,83 @@
+Test Cases and Procedures                   83/100
+
+General: 
+  - was there any other manual testing done?  You had set up
+    spreadsheets but they were empty.
+    (I am not counting testMain.cc: see my comment for the report.)
+
+Test Documentation                          18/20
+  - generally good documentation on what is being tested
+
+Automated Testing                           27/30
+  - should have been running for a few more days than just the last
+    few.
+Test cases coverage                         23/30
+  - perhaps some tricky cases (e.g. boundary tests) too?
+  
+Test records                                15/20
+
+===================================================================
+
+Written Report                              85/100
+
+Project description                          2/2
+List of features                             3/3
+  - there are many features missing from the original proposal
+
+OO Design                                   20/25
+  - I am not sure what you mean by "inefficient use of the pattern"
+    for the State pattern?
+
+Coding conventions                          10/10
+Error-handling strategies                   15/15
+  - part of what you said is for the testing part below
+
+Testing strategies                           5/10
+  - When you put things into testMain.cc, that is an automated test.
+    Manual testing refers to running the program by hand, typing
+    different inputs and observing the behaviour.
+
+  - Also, it does not make sense when you comment out tests after
+    they are working.  In fact, those are the tests that you want to
+    turn into automated tests to run regularly (regression tests).
+
+Debugging and optimization                   7/10
+
+  - Did you use any of the tools we talked about?  Why or why not?
+
+Lessons learned                              9/10
+  - about testing before implementation: if you find yourself not
+    being able to test because you don't know the interface of the
+    function, it is likely because your design is not complete.  So
+    the lesson here is work out the interface earlier.
+
+Known defects                                4/5
+
+Grammar and spelling                        10/10
+
+===================================================================
+
+Source Code and Executable                  80/100
+
+Demonstration                               23/25
+  - some features not implemented (e.g. update for recurring
+    transactions).
+  - invalid options in menu are not always checked
+  
+Coding style                                20/30
+Code walkthrough                            37/45
+  - singleton pattern should not be done with pointers
+  - some functions should have been const
+    (e.g. Account::printTrasactionHistory)
+  - why are some of the data items in Account public?  LogItem?
+    Profile?  etc.  I didn't realize the extent of this problem
+    at the walkthrough until I looked closely at the code.  This
+    appears to be widespread in the code base
+  - some of these magic constants (e.g. 110000000) should have been
+    made into named constants.
+  - Debit::transfer/withdraw/deposit() etc. should only alter the
+    balance, log transactions, etc.  The I/O should have been done
+    by the caller in the interface.  That would make it easier to
+    reuse this function in other contexts.
+  - when deleting things from a vector, it is usually a good idea
+    to scan backwards

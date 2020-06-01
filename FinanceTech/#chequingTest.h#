@@ -1,0 +1,94 @@
+//******************************************************************************
+// Filename: chequingTest.cc
+// Author(s): FinanceTech
+// Date created: Nov 9,2017
+// Purpose:Chequing derived from Debit
+// Notes: Since all functions are inherited from base class therefore nothing
+// is passed by withinthose functions since all those functions can access the
+// private data members of the base class Therefore the test cases were hard
+// to conduct for those specific functions. Hence we created the constructor
+// test cases. If the value passed by via constructor will be stored in its
+// private data members and they does not satisfy the condition then an
+// exception is thrown.
+//******************************************************************************
+#ifndef CHEQUINGTEST_H
+#define CHEQUINGTEST_H
+
+#include<cppunit/TestFixture.h>
+#include<cppunit/extensions/HelperMacros.h>
+
+#include "Chequing.h"
+
+
+class chequingTest : public CppUnit::TestFixture
+{
+   //micros to create test suite
+   //CPPUNIT_TEST(testConstruct);
+   //CPPUNIT_TEST(testBigAmountTransfer);
+   //CPPUNIT_TEST(testNegAmountWithdraw);
+   //CPPUNIT_TEST(testBigAmountWithdraw)
+   //CPPUNIT_TEST(testAmountDeposit);
+   CPPUNIT_TEST_SUITE(chequingTest);
+   CPPUNIT_TEST(constructorTest1);
+   //CPPUNIT_TEST(testNegAmountTransfer);
+   CPPUNIT_TEST_SUITE_END();
+  
+
+  public:
+   ///setup
+   ///setup the testig environment
+   void setUp();
+   ///tearDown
+   ///clears memory and destructs the testing environment
+   void tearDown();
+   void constructorTest1();
+   ///Test the transfer function by passing wrong acount
+   //void testToTransfer();
+   ///Test the transfer function by passing negative amount
+   //void testNegAmountTransfer();
+   ///Test the transfer function by passing amount that is
+   ///greater than current balance
+   //void testBigAmountTransfer();
+   ///Test the withdraw function by passing negative amount
+   //void testNegAmountWithdraw();
+   ///Test the withdraw function by passing amount that is
+   ///greater than the current balance
+   //void testBigAmountWithdraw();
+
+   //void testAmountDeposit();
+
+  private:
+
+   ///a pointer to the chequing object
+   Chequing*  ch;
+   ///incorrect account number
+   int in_account;
+   ///correct account number
+   int corr_account;
+
+   ///id number
+   int id;
+   ///balance
+   int bal;
+   ///account number
+   int account_number;
+
+   ///in range amount
+   int amount;
+   ///out of range amount
+   int in_amount;
+   ///out of range amount
+   int neg_amount;
+
+   ///daily spending limit
+   int dsl;
+   ///monthly fee to be applied to account ballance
+   int fee;
+   ///number of transactions allowed per month
+   int tm;
+   ///number of allowed monthly transactions
+   int tr;
+   
+};
+
+#endif

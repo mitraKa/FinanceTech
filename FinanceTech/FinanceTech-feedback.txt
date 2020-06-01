@@ -1,0 +1,34 @@
+FinanceTech                                   78/100
+
+Object-oriented Design                        50/65
+
+- For customer: you have "int code to differentiate state".  You should instead
+  make a state class and have different subclasses overriding whatever 
+  behaviours need to override.
+
+- for profile I am not understanding why dob is a map?
+
+- For "RecTrans", why is this defined inside the Account class?  I think it
+  should be a separate class?
+
+- generally, do not use "float".  In fact do not use "double" for money.
+  Instead use integers and store them as cents.  This way you avoid rounding
+  errors.
+
+- you have a user list but do you have an account list?  Do you need that?
+
+Application of Design Patterns                18/25
+
+- you didn't really use the state pattern properly.  In order to do that
+  you need a class hierarchy for the states (see above).  Integer codes should
+  not be used.
+
+Grammar and Spelling                          10/10
+
+Overall comments:
+
+- there are a few problems but I think it will be okay when you start
+  from this.  Main thing missing is the "state pattern" class hierarchy.
+  You need to figure out what are the things that need to change for
+  different states, and implement them in a virtual function.
+
